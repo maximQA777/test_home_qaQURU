@@ -13,4 +13,4 @@ def setup_browser():
     #driver_options = webdriver.ChromeOptions()   #настройка чтоб не открывать браузер , надо для этого 8 , 10 строчку кода
     #driver_options.add_argument('--headless')
     yield
-    #browser.quit()
+    browser.quit()
