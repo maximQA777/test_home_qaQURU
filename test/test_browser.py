@@ -1,4 +1,5 @@
 import os
+
 from selene import browser, be, by, have
 
 from mid_level_step_objects.pages import RegistrationPage

@@ -85,4 +85,3 @@ class RegistrationPage:
 
     def assert_filled_birt(self , day):
         browser.element('.table-responsive').should(have.text(day))
-
