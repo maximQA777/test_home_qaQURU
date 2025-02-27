@@ -2,6 +2,8 @@ import os
 
 from selene import browser, by, have
 
+from level_step_objects.users import User
+
 
 class RegistrationPage:
     def open(self):
@@ -21,7 +23,7 @@ class RegistrationPage:
         browser.element('#userEmail').type(email)
 
 
-    def gender_name(self ):
+    def floor_name(self , gender ):
         browser.element('[for="gender-radio-2"]').click()
 
     def number_name(self , phone):
@@ -33,18 +35,18 @@ class RegistrationPage:
         browser.element(f'.react-datepicker__year-select option[value="{years}"]').click()
         browser.element(f'.react-datepicker__day--0{day}:not(.react-datepicker__day--outside-month)').click()
 
-    def subject_name(self , Value1 , Value2 ):
-        browser.execute_script('window.scrollBy(0, 400);')   #cкролл чтоб не убирать рекламу
-        browser.element('#subjectsInput').type(Value1).press_enter()
-        browser.element('#subjectsInput').type(Value2).press_enter()
+    def subject_name(self , subjects ):
+        browser.execute_script('window.scrollBy(0, 400);')                    #cкролл чтоб не убирать рекламу
+        browser.element('#subjectsInput').type(subjects).press_enter()
 
-    def hobbis_name(self ):
+
+    def hobbis_name(self, hobby):
         browser.element('[for="hobbies-checkbox-1"]').click()
 
-    def picture_png(self  ):
+    def picture_png(self , picrture ):
         browser.element('#uploadPicture').send_keys(os.path.abspath("../resources\picture.png"))
 
-    def addres_name(self , Value):
+    def addres_name(self , Value , state , city):
         browser.element('#currentAddress').type(Value).click()
         browser.element('#state').click().element(by.text('NCR')).click()
         browser.element('#city').click().element(by.text('Delhi')).click()
@@ -62,8 +64,8 @@ class RegistrationPage:
     def assert_filled_emaily(self, Mail):
         browser.element('.table-responsive').should(have.text(Mail))
 
-    def assert_filled_gender(self, Gender):
-        browser.element('.table-responsive').should(have.text(Gender))
+    def assert_filled_gender(self, Male):
+        browser.element('.table-responsive').should(have.text(Male))
 
     def assert_filled_mobile(self, Mobile):
         browser.element('.table-responsive').should(have.text(Mobile))
@@ -85,4 +87,37 @@ class RegistrationPage:
 
     def assert_filled_birt(self , day):
         browser.element('.table-responsive').should(have.text(day))
+
+    def register(self, user: User):
+        self.first_name(user.firstName)
+        self.second_name(user.lastName)
+        self.mail_name(user.email)
+        self.floor_name(user.gender)
+        self.number_name(user.mobile)
+        self.birthday_data(user.birth_month, user.birth_year, user.birth_day)
+        self.subject_name(user.subjects)
+        self.hobbis_name(user.hobby)
+        self.picture_png(user.picture)
+        self.addres_name(user.address , user.state , user.city)
+
+        self.ready()
+
+    def  assert_form_registration(self):
+        browser.element('.table-responsive').should(have.text('Label Values'))
+        browser.element('.table-responsive').should(have.text('Values'))
+        browser.element('.table-responsive').should(have.text('Student Name Maxim Lerich'))
+        browser.element('.table-responsive').should(have.text('Student Email alab@mail.me'))
+        browser.element('.table-responsive').should(have.text('Gender Female'))
+        browser.element('.table-responsive').should(have.text('Mobile 3123213131'))
+        browser.element('.table-responsive').should(have.text('Date of Birth 15 September,1999'))
+        browser.element('.table-responsive').should(have.text('Subjects Maths'))
+        browser.element('.table-responsive').should(have.text('Hobbies Sports'))
+        browser.element('.table-responsive').should(have.text('Picture picture.png'))
+        browser.element('.table-responsive').should(have.text('Address Kabanina Polina'))
+        browser.element('.table-responsive').should(have.text('State and City NCR Delhi'))
+
+
+
+
+
 
