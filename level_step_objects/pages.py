@@ -54,40 +54,6 @@ class RegistrationPage:
     def ready(self):
         browser.element('#submit').click()
 
-    def assert_filled_names(self, Names):
-        browser.element('.table-responsive').should(have.text(Names))
-
-
-    def assert_filled_labels(self, labels):
-        browser.element('.table-responsive').should(have.text(labels))
-
-    def assert_filled_emaily(self, Mail):
-        browser.element('.table-responsive').should(have.text(Mail))
-
-    def assert_filled_gender(self, Male):
-        browser.element('.table-responsive').should(have.text(Male))
-
-    def assert_filled_mobile(self, Mobile):
-        browser.element('.table-responsive').should(have.text(Mobile))
-
-    def assert_filled_subject(self, Subjest):
-        browser.element('.table-responsive').should(have.text(Subjest))
-
-    def assert_filled_hobbies(self, Hobbies):
-        browser.element('.table-responsive').should(have.text(Hobbies))
-
-    def assert_filled_picrure(self, picture):
-        browser.element('.table-responsive').should(have.text(picture))
-
-    def assert_filled_Adress(self, Addres):
-        browser.element('.table-responsive').should(have.text(Addres))
-
-    def assert_filled_state(self , state):
-          browser.element('.table-responsive').should(have.text(state))
-
-    def assert_filled_birt(self , day):
-        browser.element('.table-responsive').should(have.text(day))
-
     def register(self, user: User):
         self.first_name(user.firstName)
         self.second_name(user.lastName)
