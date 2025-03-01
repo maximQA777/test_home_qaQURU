@@ -35,8 +35,11 @@ class RegistrationPage:
         browser.element(f'.react-datepicker__year-select option[value="{years}"]').click()
         browser.element(f'.react-datepicker__day--0{day}:not(.react-datepicker__day--outside-month)').click()
 
+
+    def scroll_web(self):
+        browser.execute_script('window.scrollBy(0, 400);') #cкролл чтоб не убирать рекламу
+
     def subject_name(self , subjects ):
-        browser.execute_script('window.scrollBy(0, 400);')                    #cкролл чтоб не убирать рекламу
         browser.element('#subjectsInput').type(subjects).press_enter()
 
 
@@ -61,6 +64,7 @@ class RegistrationPage:
         self.floor_name(user.gender)
         self.number_name(user.mobile)
         self.birthday_data(user.birth_month, user.birth_year, user.birth_day)
+        self.scroll_web()
         self.subject_name(user.subjects)
         self.hobbis_name(user.hobby)
         self.picture_png(user.picture)
