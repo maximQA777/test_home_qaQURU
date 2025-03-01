@@ -17,6 +17,7 @@ def test_register_form():
     registration_form.first_name('Maxim')
     registration_form.second_name('Lerich')
     registration_form.mail_name('alab@mail.me')
+    registration_form.sroll_web()
     registration_form.gender_name()
     registration_form.number_name('3123213131')
     registration_form.birthday_data('8' ,'1999' , '15')

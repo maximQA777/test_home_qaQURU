@@ -33,8 +33,11 @@ class RegistrationPage:
         browser.element(f'.react-datepicker__year-select option[value="{years}"]').click()
         browser.element(f'.react-datepicker__day--0{day}:not(.react-datepicker__day--outside-month)').click()
 
+    def sroll_web(self):
+        browser.execute_script('window.scrollBy(0, 400);') #cкролл чтоб не убирать рекламу
+
     def subject_name(self , Value1 , Value2 ):
-        browser.execute_script('window.scrollBy(0, 400);')   #cкролл чтоб не убирать рекламу
+
         browser.element('#subjectsInput').type(Value1).press_enter()
         browser.element('#subjectsInput').type(Value2).press_enter()
 
