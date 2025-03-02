@@ -19,7 +19,7 @@ class RegistrationPage:
     def set_email(self, email):
         browser.element('#userEmail').type(email)
 
-    def set_gender(self , gender):
+    def set_gender(self, gender):
         browser.element(f'[for="gender-radio-1"]').click()
 
     def set_phone(self, phone):
@@ -34,14 +34,13 @@ class RegistrationPage:
     def scroll_page(self):
         browser.execute_script('window.scrollBy(0, 400);')  # Скролл, чтобы не убирать рекламу
 
-    def set_subjects(self, *subjects):
-        for subject in subjects:
-            browser.element('#subjectsInput').type(subject).press_enter()
+    def set_subjects(self, subject):
+        browser.element('#subjectsInput').type(subject).press_enter()
 
-    def set_hobby(self , hobby):
+    def set_hobby(self, hobby):
         browser.element(f'[for="hobbies-checkbox-1"]').click()
 
-    def upload_picture(self , picture):
+    def upload_picture(self, picture):
         browser.element('#uploadPicture').send_keys(os.path.abspath("../resources\picture.png"))
 
     def set_address(self, address, state, city):
@@ -72,15 +71,10 @@ class RegistrationPage:
         browser.element('.table-responsive').should(have.text(f'Student Email {user.email}'))
         browser.element('.table-responsive').should(have.text(f'Gender {user.gender}'))
         browser.element('.table-responsive').should(have.text(f'Mobile {user.mobile}'))
-        browser.element('.table-responsive').should(have.text(f'Date of Birth {user.birth_day} {user.text_birth_month},{user.birth_year}'))
+        browser.element('.table-responsive').should(
+            have.text(f'Date of Birth {user.birth_day} {user.text_birth_month},{user.birth_year}'))
         browser.element('.table-responsive').should(have.text(f'Subjects {user.subjects}'))
         browser.element('.table-responsive').should(have.text(f'Hobbies {user.hobby}'))
         browser.element('.table-responsive').should(have.text(f'Picture {user.picture}'))
         browser.element('.table-responsive').should(have.text(f'Address {user.address}'))
         browser.element('.table-responsive').should(have.text(f'State and City {user.state} {user.city}'))
-
-
-
-
-
-

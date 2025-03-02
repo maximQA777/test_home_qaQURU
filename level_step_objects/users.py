@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-import os
+
 
 
 @dataclass
@@ -18,9 +18,10 @@ class User:
     address: str
     state: str
     city: str
-    text_birth_month : str
+    text_birth_month: str
 
 
-test_user = User(firstName='Maxim', lastName='Lerich', email='alab@mail.me', gender='Male', mobile='3123213131', text_birth_month='September',
-                 birth_day='15', birth_month='8', birth_year='1999', subjects= 'Math', hobby='Sports',
+test_user = User(firstName='Maxim', lastName='Lerich', email='alab@mail.me', gender='Male', mobile='3123213131',
+                 text_birth_month='September',
+                 birth_day='15', birth_month='8', birth_year='1999', subjects='Math', hobby='Sports',
                  picture='picture.png', address='Kabanina Polina', state='NCR', city='Delhi')
