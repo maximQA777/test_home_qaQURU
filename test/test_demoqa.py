@@ -1,9 +1,4 @@
-
-
 from mid_level_step_objects.page import RegistrationPage
-
-
-
 
 
 def test_register_form():
@@ -36,8 +31,3 @@ def test_register_form():
     registration_form.assert_filled_picture('Picture picture.png')
     registration_form.assert_filled_address('Address Kabanina Polina')
     registration_form.assert_filled_state('State and City NCR Delhi')
-
-
-
-
-

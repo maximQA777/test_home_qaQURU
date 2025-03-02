@@ -2,6 +2,7 @@ import os
 
 from selene import browser, by, have
 
+
 class RegistrationPage:
     def open(self):
         browser.config.base_url = 'https://demoqa.com/automation-practice-form'
