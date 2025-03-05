@@ -12,9 +12,7 @@ import os
 def load_env():
     load_dotenv()
 
-SELENOID_LOGIN = os.getenv("SELENOID_LOGIN")
-SELENOID_PASS = os.getenv("SELENOID_PASS")
-SELENOID_URL = os.getenv("SELENOID_URL")
+
 
 
 @pytest.fixture(scope='function', autouse=True)
@@ -27,6 +25,10 @@ def setup_browser():
     browser.config.window_height = 1080
     # driver_options = webdriver.ChromeOptions()   #настройка чтоб не открывать браузер , надо для этого 8 , 10 строчку кода
     # driver_options.add_argument('--headless')
+
+    SELENOID_LOGIN = os.getenv("SELENOID_LOGIN")
+    SELENOID_PASS = os.getenv("SELENOID_PASS")
+    SELENOID_URL = os.getenv("SELENOID_URL")
 
     options = Options()
     selenoid_capabilities = {
