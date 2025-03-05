@@ -3,7 +3,9 @@ from selene.support.shared import browser
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+
 from test import attach
+
 
 @pytest.fixture(scope='function')
 def jenkins_browser(request):
