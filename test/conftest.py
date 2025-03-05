@@ -9,6 +9,7 @@ from selenium.webdriver.chrome.options import Options
 
 from test import attach
 
+
 @pytest.fixture(scope='function')
 def jenkins_browser(request):
     options = Options()
@@ -21,7 +22,7 @@ def jenkins_browser(request):
         }
     }
 
-    options.capabilities, update(selenoid_capabilities)
+    options.capabilities.update(selenoid_capabilities)
     driver = webdriver.Remote(
         command_executor=f"https://{selenoid_login}:{selenoid_pass}@{selenoid_url}/wd/hub",
         options=options)
@@ -35,14 +36,15 @@ def jenkins_browser(request):
     browser.quit()
 
 
-
 @pytest.fixture(scope="session", autouse=True)
 def load_env():
     load_dotenv()
 
+
 selenoid_login = os.getenv("SELENOID_LOGIN")
 selenoid_pass = os.getenv("SELENOID_PASS")
 selenoid_url = os.getenv("SELENOID_URL")
+
 
 @pytest.fixture(scope='function', autouse=True)
 def setup_browser():
@@ -54,7 +56,3 @@ def setup_browser():
     browser.config.window_height = 1080
     # driver_options = webdriver.ChromeOptions()   #настройка чтоб не открывать браузер , надо для этого 8 , 10 строчку кода
     # driver_options.add_argument('--headless')
-
-
-
-
