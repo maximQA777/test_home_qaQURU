@@ -1,13 +1,7 @@
-from turtle import update
-
-from dotenv import load_dotenv
-import os
-from selene.support.shared import browser
 import pytest
+from selene.support.shared import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-
-from test import attach
 
 
 @pytest.fixture(scope='function', autouse=True)
