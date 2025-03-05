@@ -15,7 +15,7 @@ def test_register_form():
     registration_page.scroll_page()
     registration_page.set_subjects("Maths", "English")
     registration_page.set_hobby(1)
-    registration_page.upload_picture("../resources/picture.png")
+    registration_page.upload_picture('picture.png')
     registration_page.set_address("Kabanina Polina", "NCR", "Delhi")
 
     registration_form.click_submit_button()

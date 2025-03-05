@@ -50,9 +50,10 @@ class RegistrationPage:
     def set_hobby(self, hobby_value):
         browser.element(f'[for="hobbies-checkbox-{hobby_value}"]').click()
 
-    @allure.step("Загружаем изображение: {file_path}")
-    def upload_picture(self, file_path):
-        browser.element('#uploadPicture').send_keys(os.path.abspath(file_path))
+    @allure.step("Загружаем изображение ")
+    def upload_picture(self, path):
+        browser.element("#uploadPicture").send_keys(
+            os.path.abspath(os.path.join(os.path.dirname(__file__), f"../resources/{path}")))
 
     @allure.step("Вводим адрес: {address}, штат: {state}, город: {city}")
     def set_address(self, address, state, city):
