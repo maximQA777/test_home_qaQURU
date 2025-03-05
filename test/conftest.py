@@ -6,6 +6,17 @@ from selenium.webdriver.chrome.options import Options
 from test import attach
 from dotenv import load_dotenv
 import os
+
+
+@pytest.fixture(scope="session", autouse=True)
+def load_env():
+    load_dotenv()
+
+SELENOID_LOGIN = os.getenv("SELENOID_LOGIN")
+SELENOID_PASS = os.getenv("SELENOID_PASS")
+SELENOID_URL = os.getenv("SELENOID_URL")
+
+
 @pytest.fixture(scope='function', autouse=True)
 def setup_browser():
     browser.config.base_url = 'https://demoqa.com/automation-practice-form'
@@ -42,10 +53,3 @@ def setup_browser():
 
 
 
-@pytest.fixture(scope="session", autouse=True)
-def load_env():
-    load_dotenv()
-
-SELENOID_LOGIN = os.getenv("SELENOID_LOGIN")
-SELENOID_PASS = os.getenv("SELENOID_PASS")
-SELENOID_URL = os.getenv("SELENOID_URL")
