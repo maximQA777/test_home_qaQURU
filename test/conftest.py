@@ -4,8 +4,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 from test import attach
-
-
+from dotenv import load_dotenv
+import os
 @pytest.fixture(scope='function', autouse=True)
 def setup_browser():
     browser.config.base_url = 'https://demoqa.com/automation-practice-form'
@@ -29,7 +29,7 @@ def setup_browser():
 
     options.capabilities.update(selenoid_capabilities)
     browser.config.driver = webdriver.Remote(
-        command_executor=f"https://user1:1234@selenoid.autotests.cloud/wd/hub",
+        command_executor=f"https://{SELENOID_LOGIN}:{SELENOID_PASS}@{SELENOID_URL}/wd/hub",
         options=options)
 
 
@@ -39,3 +39,13 @@ def setup_browser():
     attach.add_html(browser)
     attach.add_video(browser)
     browser.quit()
+
+
+
+@pytest.fixture(scope="session", autouse=True)
+def load_env():
+    load_dotenv()
+
+SELENOID_LOGIN = os.getenv("SELENOID_LOGIN")
+SELENOID_PASS = os.getenv("SELENOID_PASS")
+SELENOID_URL = os.getenv("SELENOID_URL")
