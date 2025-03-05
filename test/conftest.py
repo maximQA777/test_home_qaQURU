@@ -2,7 +2,6 @@ from turtle import update
 
 from dotenv import load_dotenv
 import os
-from selene import Browser, Config
 from selene.support.shared import browser
 import pytest
 from selenium import webdriver
@@ -36,8 +35,6 @@ def jenkins_browser(request):
     browser.quit()
 
 
-from dotenv import load_dotenv
-import os
 
 @pytest.fixture(scope="session", autouse=True)
 def load_env():
