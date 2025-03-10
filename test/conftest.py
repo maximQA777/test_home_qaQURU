@@ -12,9 +12,6 @@ import os
 def load_env():
     load_dotenv()
 
-
-
-
 @pytest.fixture(scope='function', autouse=True)
 def setup_browser():
     browser.config.base_url = 'https://demoqa.com/automation-practice-form'
