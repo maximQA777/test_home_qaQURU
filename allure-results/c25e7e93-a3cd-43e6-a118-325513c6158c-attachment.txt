@@ -1,0 +1,5 @@
+{'level': 'WARNING', 'message': 'https://www.gstatic.com/recaptcha/releases/EGO3I7Q26cZ-jBw3BEtzIx7-/recaptcha__en.js 26:317 "reCAPTCHA couldn\'t find user-provided function: onloadCallback"', 'source': 'console-api', 'timestamp': 1741191514417}
+{'level': 'SEVERE', 'message': 'https://cdn.ad.plus/player/adplus.js 429:375 Uncaught TypeError: c(...).setup is not a function', 'source': 'javascript', 'timestamp': 1741191514751}
+{'level': 'WARNING', 'message': 'https://demoqa.com/automation-practice-form/ - Third-party cookie will be blocked. Learn more in the Issues tab.', 'source': 'other', 'timestamp': 1741191515302}
+{'level': 'WARNING', 'message': 'https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202503030101/pubads_impl.js?cb=31090725 32:377774 "[GPT] Interstitial /21849154601,22343295815/Ad.Plus-300x250 not requested: Format already created on the page.\\nhttps://goo.gle/gpt-message#134"', 'source': 'console-api', 'timestamp': 1741191515524}
+{'level': 'WARNING', 'message': 'https://demoqa.com/automation-practice-form/ - Third-party cookie will be blocked. Learn more in the Issues tab.', 'source': 'other', 'timestamp': 1741191515587}
