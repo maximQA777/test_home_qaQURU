@@ -7,12 +7,12 @@ from test import attach
 from dotenv import load_dotenv
 import os
 
-DEFAULT_BROWSER_VERSION = "100.0"
+DEFAULT_BROWSER_VERSION = "127.0"
 
 def pytest_addoption(parser):
     parser.addoption(
         '--browser_version',
-        default='100.0'
+        default='127.0'
     )
 
 
@@ -40,7 +40,7 @@ def setup_browser(request):
     options = Options()
     selenoid_capabilities = {
         "browserName": "chrome",
-        "browserVersion": "125.0",
+        "browserVersion": "127.0",
         "selenoid:options": {
             "enableVNC": True,
             "enableVideo": True
